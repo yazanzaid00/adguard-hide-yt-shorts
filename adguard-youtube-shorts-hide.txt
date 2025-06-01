@@ -1,73 +1,73 @@
 ! Title: Hide YouTube Shorts (AdGuard)
 ! Description: Hide all traces of YouTube Shorts on YouTube (desktop & mobile)
-! Version: 1.11.1
+! Version: 1.11.2
 ! Last modified: 2025-06-01
 ! Expires: 2 weeks (update frequency)
 ! Homepage: https://github.com/yazanzaid00/adguard-hide-yt-shorts
 ! License: https://github.com/yazanzaid00/adguard-hide-yt-shorts/blob/master/LICENSE.md
 ! Based on Remove YT Shorts | AdGuard.md from GitHub Gist by sumonst21: https://gist.githubusercontent.com/sumonst21/1779307b807509488d1a915d2bd370bd/raw/750e8258d8baf9374dbce12c88b1cb5812ab3fb4/Remove%2520YT%2520Shorts%2520%257C%2520AdGuard.md
-! Compatible with: AdGuard for Safari (macOS/iOS)
-!
+! Compatible with: AdGuard for Safari (macOS / iOS / iPadOS)
+! -----------------------------------------------------------------
 ! YT Homepage and Subscriptions – Hide the Shorts section
 youtube.com##ytd-rich-section-renderer[is-shorts]
-youtube.com##ytd-rich-section-renderer:has(#rich-shelf-header:has-text(Shorts))
+youtube.com#?#ytd-rich-section-renderer:has(#rich-shelf-header:has-text(Shorts))
 youtube.com##[is-shorts]
 ! YT Menu – Hide the Shorts button
 youtube.com###guide [title="Shorts"], .ytd-mini-guide-entry-renderer[title="Shorts"]
-youtube.com###guide [title="Shorts"]
 ! YT Search – Hide Shorts (video results with Shorts links)
-youtube.com##ytd-video-renderer:has(a[href*="/shorts/"])
+youtube.com#?#ytd-video-renderer:has(a[href*="/shorts/"])
 ! YT Search, Channels, Sidebar – Hide Shorts sections
 youtube.com##ytd-reel-shelf-renderer
 ! YT Channels – Hide the Shorts tab (old layout)
 youtube.com##tp-yt-paper-tab[aria-label="Shorts"]
 ! YT Channels – Hide the Shorts tab (new layout 2023+)
-youtube.com##yt-tab-shape:has-text(/^Shorts$/)
+youtube.com#?#yt-tab-shape:has-text(/^Shorts$/)
 ! YT Subscriptions – Hide Shorts (Grid view)
-youtube.com##ytd-grid-video-renderer:has(a[href*="/shorts/"])
+youtube.com#?#ytd-grid-video-renderer:has(a[href*="/shorts/"])
 ! YT Subscriptions – Hide Shorts (List view)
-youtube.com##ytd-video-renderer:has(a[href*="/shorts/"])
+youtube.com#?#ytd-video-renderer:has(a[href*="/shorts/"])
 ! YT Subscriptions – Hide Shorts (New layout)
-youtube.com##ytd-rich-item-renderer:has(a[href*="/shorts/"])
+youtube.com#?#ytd-rich-item-renderer:has(a[href*="/shorts/"])
 ! YT Sidebar – Hide Shorts suggestions
-youtube.com##ytd-compact-video-renderer:has(a[href*="/shorts/"])
+youtube.com#?#ytd-compact-video-renderer:has(a[href*="/shorts/"])
+! YT Channels & Mobile – Hide the Shorts tab (generic)
+youtube.com##[tab-title="Shorts"]
+m.youtube.com##[tab-title="Shorts"]
 ! YT Collapsed Sidebar (additional rule for dynamic cases)
-youtube.com##ytd-mini-guide-entry-renderer:has(a[title="Shorts"])
+youtube.com#?#ytd-mini-guide-entry-renderer:has(a[title="Shorts"])
 ! YT Overlay Badge – Grid view
-youtube.com##ytd-grid-video-renderer:has([overlay-style="SHORTS"])
+youtube.com#?#ytd-grid-video-renderer:has([overlay-style="SHORTS"])
 ! YT Overlay Badge – List view
-youtube.com##ytd-video-renderer:has([overlay-style="SHORTS"])
+youtube.com#?#ytd-video-renderer:has([overlay-style="SHORTS"])
 ! YT Overlay Badge – New layout
-youtube.com##ytd-rich-item-renderer:has([overlay-style="SHORTS"])
+youtube.com#?#ytd-rich-item-renderer:has([overlay-style="SHORTS"])
 ! YT Overlay Badge – Sidebar suggestions
-youtube.com##ytd-compact-video-renderer:has([overlay-style="SHORTS"])
+youtube.com#?#ytd-compact-video-renderer:has([overlay-style="SHORTS"])
+! YT Sidebar (Related) – Hide Shorts suggestions with overlay
+youtube.com#?# #related ytd-compact-video-renderer:has([overlay-style="SHORTS"])      ! fixed malformed marker
 ! YT Mobile Overlay Badge – Search results
-m.youtube.com##ytm-video-with-context-renderer:has([data-style="SHORTS"])
+m.youtube.com#?#ytm-video-with-context-renderer:has([data-style="SHORTS"])
 ! YT Mobile Overlay Badge – Other contexts
-m.youtube.com##ytm-compact-video-renderer:has([data-style="SHORTS"])
+m.youtube.com#?#ytm-compact-video-renderer:has([data-style="SHORTS"])
 ! YT Mobile – Hide the Shorts menu button
-m.youtube.com##ytm-pivot-bar-item-renderer:has(>.pivot-shorts)
+m.youtube.com#?#ytm-pivot-bar-item-renderer:has(>.pivot-shorts)
 ! YT Mobile – Hide Shorts sections
 m.youtube.com##ytm-reel-shelf-renderer
 ! YT Mobile – Hide Shorts in search results
-m.youtube.com##ytm-video-with-context-renderer:has(a[href*="/shorts/"])
+m.youtube.com#?#ytm-video-with-context-renderer:has(a[href*="/shorts/"])
 ! YT Mobile – Hide the Shorts tab on channel pages
 m.youtube.com##tp-yt-paper-tab[aria-label="Shorts"]
-! YT Mobile - Hide the Shorts Videos on HomePage
-m.youtube.com##ytm-rich-section-renderer:has(.shelf-header-layout-wiz__title:has-text(Shorts))
-! YT Homepage – Hide empty Shorts section (after other rules applied)
-youtube.com##ytd-rich-section-renderer.style-scope.ytd-rich-grid-renderer
+! YT Mobile – Hide the Shorts Videos on HomePage
+m.youtube.com#?#ytm-rich-section-renderer:has(.shelf-header-layout-wiz__title:has-text(Shorts))
 ! YT Desktop – Hide Shorts link in mini guide
 youtube.com##a#endpoint.yt-simple-endpoint.style-scope.ytd-mini-guide-entry-renderer[title="Shorts"]
-! YT Desktop Search – Hide the Shorts tab/header
-youtube.com##ytd-search-header-renderer.style-scope.ytd-search
 ! YT Desktop – Hide Shorts tab shape button
 youtube.com##yt-tab-shape.yt-tab-shape-wiz.yt-tab-shape-wiz--host-clickable[tab-title="Shorts"]
 ! YT Desktop – Hide Shorts link in main guide
 youtube.com##a#endpoint.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[title="Shorts"]
 ! YT Desktop – Hide videos with "#shorts" in title
-youtube.com##ytd-grid-video-renderer:has(#video-title:has-text(#shorts))
-youtube.com##ytd-video-renderer:has(#video-title:has-text(#shorts))
+youtube.com#?#ytd-grid-video-renderer:has(#video-title:has-text(#shorts))
+youtube.com#?#ytd-video-renderer:has(#video-title:has-text(#shorts))
 ! YT Desktop & Mobile – Hide "Shorts" filter chip
-youtube.com##yt-chip-cloud-chip-renderer:has-text(Shorts)
-m.youtube.com##ytm-chip-cloud-chip-renderer:has-text(Shorts)
+youtube.com#?#yt-chip-cloud-chip-renderer:has-text(Shorts)
+m.youtube.com#?#ytm-chip-cloud-chip-renderer:has-text(Shorts)
