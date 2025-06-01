@@ -1,12 +1,15 @@
-# Hide YouTube Shorts List
+# Hide YouTube Shorts (AdGuard)
 
-A [uBlock Origin](https://github.com/gorhill/uBlock) filter list to hide all traces of YouTube shorts videos.
+An AdGuard-compatible filter list to hide all traces of YouTube Shorts videos (desktop & mobile).
 
-This filter list might work with other content blockers, but I haven't looked into that (yet).
+This filter list is specifically tailored for AdGuard but may work with other content blockers.
 
-Copy the link below, go to uBlock Origin > Dashboard > Filters and paste the link underneath the 'Import...' heading:
-- [https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt](ubo:subscribe?location=https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt)
+Copy the link below, open AdGuard Custom Filters, and paste it under “Add a filter list by URL” or “Import…”:
+
+- `https://raw.githubusercontent.com/yazanzaid00/adguard-hide-yt-shorts/master/adguard-youtube-shorts-hide.txt`
+
+For users of the original uBlock Origin list, please refer to the [upstream repository](https://github.com/gijsdev/ublock-hide-yt-shorts).
 
 ## License
 
-See [LICENSE.md](https://github.com/gijsdev/ublock-hide-yt-shorts/blob/master/LICENSE.md)
+See [LICENSE.md](https://github.com/yazanzaid00/adguard-hide-yt-shorts/blob/master/LICENSE.md)
