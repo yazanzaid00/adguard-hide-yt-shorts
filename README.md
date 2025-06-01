@@ -8,6 +8,9 @@ Copy the link below, open AdGuard Custom Filters, and paste it under “Add a fi
 
 - `https://raw.githubusercontent.com/yazanzaid00/adguard-hide-yt-shorts/master/adguard-youtube-shorts-hide.txt`
 
+
+---
+
 **Extra Tip:** Redirect a Shorts URL to a standard video URL using this regex:
 ```
 /^(https?:\/\/(?:[^\/]+\.)?youtube\.com)\/shorts\/([^\/\?\&]+)(.*)$/
