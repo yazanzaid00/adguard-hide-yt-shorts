@@ -44,7 +44,7 @@ youtube.com#?#ytd-rich-item-renderer:has([overlay-style="SHORTS"])
 ! YT Overlay Badge – Sidebar suggestions
 youtube.com#?#ytd-compact-video-renderer:has([overlay-style="SHORTS"])
 ! YT Sidebar (Related) – Hide Shorts suggestions with overlay
-youtube.com#?# #related ytd-compact-video-renderer:has([overlay-style="SHORTS"])      ! fixed malformed marker
+youtube.com###related ytd-compact-video-renderer:has([overlay-style="SHORTS"])
 ! YT Mobile Overlay Badge – Search results
 m.youtube.com#?#ytm-video-with-context-renderer:has([data-style="SHORTS"])
 ! YT Mobile Overlay Badge – Other contexts
