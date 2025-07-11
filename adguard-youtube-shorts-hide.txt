@@ -1,7 +1,7 @@
 ! Title: Hide YouTube Shorts (AdGuard)
 ! Description: Hide all traces of YouTube Shorts on YouTube (desktop & mobile)
-! Version: 1.11.2
-! Last modified: 2025-06-01
+! Version: 1.11.3
+! Last modified: 2025-07-12
 ! Expires: 2 weeks (update frequency)
 ! Homepage: https://github.com/yazanzaid00/adguard-hide-yt-shorts
 ! License: https://github.com/yazanzaid00/adguard-hide-yt-shorts/blob/master/LICENSE.md
@@ -71,3 +71,7 @@ youtube.com#?#ytd-video-renderer:has(#video-title:has-text(#shorts))
 ! YT Desktop & Mobile – Hide "Shorts" filter chip
 youtube.com#?#yt-chip-cloud-chip-renderer:has-text(Shorts)
 m.youtube.com#?#ytm-chip-cloud-chip-renderer:has-text(Shorts)
+! YT Desktop – Hide Shorts shelf (Grid-shelf-view-model)
+youtube.com#?#grid-shelf-view-model:has-text(Shorts)
+! YT Mobile – Hide Shorts shelf only when it says “Shorts”
+m.youtube.com#?#ytm-reel-shelf-renderer:has-text(Shorts)
