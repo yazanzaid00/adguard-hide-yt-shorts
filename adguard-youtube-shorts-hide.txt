@@ -75,5 +75,8 @@ m.youtube.com#?#ytm-chip-cloud-chip-renderer:has-text(Shorts)
 youtube.com#?#grid-shelf-view-model:has-text(Shorts)
 ! YT Mobile – Hide Shorts shelf only when it says “Shorts”
 m.youtube.com#?#ytm-reel-shelf-renderer:has-text(Shorts)
-! YT related videos next to suggestions
+! YT related suggestions next to video
 youtube.com###related
+! YT scroll bar
+youtube.com##body::-webkit-scrollbar
+
