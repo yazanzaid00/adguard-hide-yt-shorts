@@ -75,3 +75,24 @@ m.youtube.com#?#ytm-chip-cloud-chip-renderer:has-text(Shorts)
 youtube.com#?#grid-shelf-view-model:has-text(Shorts)
 ! YT Mobile – Hide Shorts shelf only when it says “Shorts”
 m.youtube.com#?#ytm-reel-shelf-renderer:has-text(Shorts)
+! YT Layout – Remove gaps after hiding items in rich grid
+youtube.com##ytd-rich-grid-row,#contents.ytd-rich-grid-row:style(display: contents !important)
+! YT Desktop – Hide videos with "#Shorts" in title (enhanced patterns)
+youtube.com#?#ytd-grid-video-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
+youtube.com#?#ytd-video-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
+youtube.com#?#ytd-rich-item-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
+! YT Desktop – Hide Shorts in sidebar by text content
+youtube.com#?#ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/i))
+youtube.com#?#ytd-mini-guide-entry-renderer:has(.title:has-text(/^Shorts$/i))
+! YT Search – Hide Shorts shelves with alternate headers
+youtube.com#?#grid-shelf-view-model:has(.shelf-header-layout-wiz__title:has-text(/(^| )Shorts( |$)/i))
+youtube.com#?#grid-shelf-view-model:has(.yt-shelf-header-layout__title:has-text(/(^| )Shorts( |$)/i))
+! YT Mobile – Hide Shorts in feed and titles
+m.youtube.com#?#ytm-rich-item-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
+m.youtube.com#?#ytm-item-section-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
+! YT Mobile – Hide Shorts tab (2023+ layout)
+m.youtube.com##yt-tab-shape:has-text(/^Shorts$/)
+! YT Sidebar / Below Player – Hide Shorts (including lockup view model)
+youtube.com###related :is(ytd-compact-video-renderer,yt-lockup-view-model):has([overlay-style="SHORTS"],[href^="/shorts/"])
+! YT Mobile – Hide icon-only Shorts shelf (locale-agnostic)
+m.youtube.com##ytm-rich-section-renderer:has([d^="M17.77,10.32l-1.2"])
