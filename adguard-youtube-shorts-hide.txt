@@ -1,17 +1,21 @@
 ! Title: Hide YouTube Shorts (AdGuard)
 ! Description: Hide all traces of YouTube Shorts on YouTube (desktop & mobile)
-! Version: 1.11.5
-! Last modified: 2025-10-14
+! Version: 1.11.6
+! Last modified: 2026-07-28
 ! Expires: 2 weeks (update frequency)
 ! Homepage: https://github.com/yazanzaid00/adguard-hide-yt-shorts
 ! License: https://github.com/yazanzaid00/adguard-hide-yt-shorts/blob/master/LICENSE.md
 ! Based on Remove YT Shorts | AdGuard.md from GitHub Gist by sumonst21: https://gist.githubusercontent.com/sumonst21/1779307b807509488d1a915d2bd370bd/raw/750e8258d8baf9374dbce12c88b1cb5812ab3fb4/Remove%2520YT%2520Shorts%2520%257C%2520AdGuard.md
-! Compatible with: AdGuard for Safari (macOS / iOS / iPadOS)
+! Compatible with: AdGuard for Safari (macOS) and AdGuard for iOS/iPadOS
+! Requires: AdGuard Safari Web Extension / Advanced Protection enabled
 ! -----------------------------------------------------------------
 ! YT Homepage and Subscriptions – Hide the Shorts section
 youtube.com##ytd-rich-section-renderer[is-shorts]
 youtube.com#?#ytd-rich-section-renderer:has(#rich-shelf-header:has-text(Shorts))
 youtube.com##[is-shorts]
+youtube.com#?#ytd-rich-shelf-renderer[is-shorts]:upward(ytd-rich-section-renderer)
+! YT Homepage / Rich Grid – Hide new Shorts lockup cards
+youtube.com#?#ytd-rich-item-renderer[rendered-from-rich-grid] ytm-shorts-lockup-view-model:upward(ytd-rich-item-renderer[rendered-from-rich-grid])
 ! YT Menu – Hide the Shorts button
 youtube.com###guide [title="Shorts"], .ytd-mini-guide-entry-renderer[title="Shorts"]
 ! YT Search – Hide Shorts (video results with Shorts links)
@@ -35,6 +39,7 @@ youtube.com##[tab-title="Shorts"]
 m.youtube.com##[tab-title="Shorts"]
 ! YT Collapsed Sidebar (additional rule for dynamic cases)
 youtube.com#?#ytd-mini-guide-entry-renderer:has(a[title="Shorts"])
+youtube.com##ytd-mini-guide-entry-renderer[aria-label="Shorts"]
 ! YT Overlay Badge – Grid view
 youtube.com#?#ytd-grid-video-renderer:has([overlay-style="SHORTS"])
 ! YT Overlay Badge – List view
@@ -53,8 +58,10 @@ m.youtube.com#?#ytm-compact-video-renderer:has([data-style="SHORTS"])
 m.youtube.com#?#ytm-pivot-bar-item-renderer:has(>.pivot-shorts)
 ! YT Mobile – Hide Shorts sections
 m.youtube.com##ytm-reel-shelf-renderer
+m.youtube.com#?#ytm-shorts-lockup-view-model:upward(ytm-rich-section-renderer)
 ! YT Mobile – Hide Shorts in search results
 m.youtube.com#?#ytm-video-with-context-renderer:has(a[href*="/shorts/"])
+m.youtube.com#?#ytm-shorts-lockup-view-model:upward(grid-shelf-view-model)
 ! YT Mobile – Hide the Shorts tab on channel pages
 m.youtube.com##tp-yt-paper-tab[aria-label="Shorts"]
 ! YT Mobile – Hide the Shorts Videos on HomePage
@@ -70,13 +77,16 @@ youtube.com#?#ytd-grid-video-renderer:has(#video-title:has-text(#shorts))
 youtube.com#?#ytd-video-renderer:has(#video-title:has-text(#shorts))
 ! YT Desktop & Mobile – Hide "Shorts" filter chip
 youtube.com#?#yt-chip-cloud-chip-renderer:has-text(Shorts)
+youtube.com#?#ytm-chip-cloud-chip-renderer:has([aria-label="Shorts"])
 m.youtube.com#?#ytm-chip-cloud-chip-renderer:has-text(Shorts)
 ! YT Desktop – Hide Shorts shelf (Grid-shelf-view-model)
 youtube.com#?#grid-shelf-view-model:has-text(Shorts)
+youtube.com#?#ytd-search grid-shelf-view-model:has(a[href^="/shorts/"])
+youtube.com#?#ytm-shorts-lockup-view-model-v2:upward(grid-shelf-view-model)
 ! YT Mobile – Hide Shorts shelf only when it says “Shorts”
 m.youtube.com#?#ytm-reel-shelf-renderer:has-text(Shorts)
 ! YT Layout – Remove gaps after hiding items in rich grid
-youtube.com##ytd-rich-grid-row,#contents.ytd-rich-grid-row:style(display: contents !important)
+youtube.com#$#ytd-rich-grid-row, #contents.ytd-rich-grid-row { display: contents !important; }
 ! YT Desktop – Hide videos with "#Shorts" in title (enhanced patterns)
 youtube.com#?#ytd-grid-video-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
 youtube.com#?#ytd-video-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
@@ -91,7 +101,7 @@ youtube.com#?#grid-shelf-view-model:has(.yt-shelf-header-layout__title:has-text(
 m.youtube.com#?#ytm-rich-item-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
 m.youtube.com#?#ytm-item-section-renderer:has(#video-title:has-text(/(^| )#Shorts?( |$)/i))
 ! YT Mobile – Hide Shorts tab (2023+ layout)
-m.youtube.com##yt-tab-shape:has-text(/^Shorts$/)
+m.youtube.com#?#yt-tab-shape:has-text(/^Shorts$/)
 ! YT Sidebar / Below Player – Hide Shorts (including lockup view model)
 youtube.com###related :is(ytd-compact-video-renderer,yt-lockup-view-model):has([overlay-style="SHORTS"],[href^="/shorts/"])
 ! YT Mobile – Hide icon-only Shorts shelf (locale-agnostic)
